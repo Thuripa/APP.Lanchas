@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0728A0"
+    tools:context=".PainelUsuario">
+
+    <Button
+        android:id="@+id/btnSair"
+        android:layout_width="224dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="94dp"
+        android:backgroundTint="#1352B3"
+        android:text="@string/SAIR"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLanchas" />
+
+    <Button
+        android:id="@+id/btnLanchas"
+        android:layout_width="224dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="94dp"
+        android:backgroundTint="#1352B3"
+        android:text="@string/Lanchas"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaidas" />
+
+    <TextView
+        android:id="@+id/tvPainelDeUsuario"
+        android:layout_width="249dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="81dp"
+        android:text="@string/painel_de_usu_rio"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSaidas"
+        android:layout_width="224dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="94dp"
+        android:backgroundTint="#1352B3"
+        android:text="@string/Saidas"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPainelDeUsuario" />
+</androidx.constraintlayout.widget.ConstraintLayout>

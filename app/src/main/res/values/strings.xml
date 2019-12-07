@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">APP Lanchas</string>
+    <string name="Bem_Vindo">Bem Vindo!</string>
+    <string name="ENTRAR">ENTRAR</string>
+    <string name="title_activity_painel_usuario">PainelUsuario</string>
+    <string name="Adicionar">Adicionar</string>
+    <string name="Adicionar_Lancha">Adicionar Lancha</string>
+    <string name="Nome_Lancha">Nome Lancha</string>
+    <string name="Lanchas">Lanchas</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="tamanho_em_p_s">Tamanho: (Em pés)</string>
+    <string name="modelo">Modelo:</string>
+    <string name="nome_do_dono">Nome do Dono:</string>
+    <string name="nome_da_lancha">Nome da Lancha:</string>
+    <string name="cadastro_de_lancha">Cadastro de Lancha</string>
+    <string name="cadastrar">CADASTRAR</string>
+    <string name="painel_de_usu_rio">Painel de Usuário</string>
+    <string name="SAIR">SAIR</string>
+    <string name="Saidas">Saidas</string>
+    <string name="adicionar_imagem">Adicionar Imagem</string>
+    <string name="Adicionar_Sa_da">Adicionar Saída</string>
+    <string name="inserir_imagem_lancha">Inserir Imagem Lancha</string>
+    <string name="tirar_foto">Tirar Foto</string>
+    <string name="todo">TODO</string>
+    <string name="Editar_Lancha">Editar Lancha</string>
+</resources>

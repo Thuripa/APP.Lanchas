@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0728A0"
+    tools:context=".EditarLancha">
+
+    <EditText
+        android:id="@+id/etEditTamanho"
+        android:layout_width="294dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="59dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:hint="@string/tamanho_em_p_s"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEditModelo"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/etEditModelo"
+        android:layout_width="294dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="59dp"
+        android:ems="10"
+        android:hint="@string/modelo"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEditNomeDono"
+        android:importantForAutofill="no"/>
+
+    <TextView
+        android:id="@+id/tvEditarLancha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="114dp"
+        android:text="@string/Editar_Lancha"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etEditNomeLancha"
+        android:layout_width="294dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="59dp"
+        android:ems="10"
+        android:hint="@string/nome_da_lancha"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditarLancha"
+        android:importantForAutofill="no"/>
+
+    <EditText
+        android:id="@+id/etEditNomeDono"
+        android:layout_width="294dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="59dp"
+        android:ems="10"
+        android:hint="@string/nome_do_dono"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEditNomeLancha"
+        android:importantForAutofill="no"/>
+
+    <Button
+        android:id="@+id/btnEditarLancha"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#1352B3"
+        android:text="@string/Editar_Lancha"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivFotoLancha2"
+        android:layout_width="136dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEditTamanho"
+        app:srcCompat="@drawable/ic_camera_alt_black_24dp"
+        android:contentDescription="@string/todo" />
+
+    <Button
+        android:id="@+id/btnTirarFoto"
+        android:layout_width="124dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="52dp"
+        android:backgroundTint="#1352B3"
+        android:text="@string/tirar_foto"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEditTamanho" />
+</androidx.constraintlayout.widget.ConstraintLayout>

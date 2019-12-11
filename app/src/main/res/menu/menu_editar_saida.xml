@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuSalvarEdicaoSaida"
+        android:title="@string/Editar_Saida"
+        />
+
+    <item
+        android:id="@+id/menuExcluirSaida"
+        android:title="@string/excluir_saida"
+        />
+
+</menu>

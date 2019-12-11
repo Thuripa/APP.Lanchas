@@ -21,6 +21,19 @@
     <string name="Adicionar_Sa_da">Adicionar Saída</string>
     <string name="inserir_imagem_lancha">Inserir Imagem Lancha</string>
     <string name="tirar_foto">Tirar Foto</string>
-    <string name="todo">TODO</string>
     <string name="Editar_Lancha">Editar Lancha</string>
+    <string name="cadastro_de_saida">Cadastro de Saida</string>
+    <string name="Escolha_Uma_Lancha">Escolha Uma Lancha:</string>
+    <string name="nome_lancha_00_00_00_00_00">Nome Lancha 00:00 - 00/00/00</string>
+    <string name="nome_lancha____00_00">Nome Lancha 00:00</string>
+    <string name="_00_00">00:00</string>
+    <string name="hora">Hora:</string>
+    <string name="data">Data:</string>
+    <string name="escolher_data">Escolher Data</string>
+    <string name="escolher_hora">Escolher Hora</string>
+    <string name="foto">Foto:</string>
+    <string name="todo">TODO</string>
+    <string name="excluir_lancha">Excluir Lancha</string>
+    <string name="Editar_Saida">Editar Saida</string>
+    <string name="excluir_saida">Excluir Saida</string>
 </resources>

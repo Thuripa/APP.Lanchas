@@ -13,6 +13,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +24,9 @@ import android.widget.Toast;
 
 import com.example.applanchas.Modelos.Lancha;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 public class EditarLancha extends AppCompatActivity {
 
 
@@ -28,6 +34,7 @@ public class EditarLancha extends AppCompatActivity {
     private static final int PERMISSION_CODE = 1000;
     private static final int IMAGE_CAPTURE_CODE = 1001;
 
+    Realm realm;
     // URI DA FOTO
     Uri uri_imagem;
     ImageView ivFotoLancha2;
@@ -45,12 +52,25 @@ public class EditarLancha extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_lancha);
 
-        lancha = getIntent().getParcelableExtra("lancha");
+        realm = Realm.getDefaultInstance();
+
+        Intent intent = getIntent();
+        lancha = intent.getParcelableExtra("lancha");
 
         etEditNomeLancha = findViewById(R.id.etEditNomeLancha);
         etEditNomeDono = findViewById(R.id.etEditNomeDono);
-        etEditModelo = findViewById(R.id.etModelo);
+        etEditModelo = findViewById(R.id.etEditModelo);
+        ivFotoLancha2 = findViewById(R.id.ivFotoLancha2);
+
+        if (lancha.getUri_imagem() != null) {
+
+            String uriString = lancha.getUri_imagem();
+            ivFotoLancha2.setImageURI(Uri.parse(uriString));
+
+        }
+
         etEditTamanho = findViewById(R.id.etEditTamanho);
+
         btnTirarFoto = findViewById(R.id.btnTirarFoto);
         btnEditarLancha = findViewById(R.id.btnEditarLancha);
 
@@ -93,14 +113,28 @@ public class EditarLancha extends AppCompatActivity {
         if (lancha != null){
             etEditNomeLancha.setText(lancha.getNomeLancha());
             etEditNomeDono.setText(lancha.getNomeDono());
-            etEditModelo.setText(lancha.getModelo());
-            etEditTamanho.setText(lancha.getTamanho());
+            etEditModelo.setText(String.valueOf(lancha.getModelo()));
+            etEditTamanho.setText(String.valueOf(lancha.getTamanho()));
         }
 
     }
 
     private void editarLancha() {
 
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm bgRealm1) {
+
+                lancha.setNomeLancha(etEditNomeLancha.getText().toString());
+                lancha.setNomeDono(etEditNomeDono.getText().toString());
+                lancha.setModelo(etEditModelo.getText().toString());
+                lancha.setTamanho(Integer.valueOf(etEditTamanho.getText().toString()));
+            }
+        });
+        realm.commitTransaction();
+        realm.close();
+        Intent intent = new Intent(this, Lanchas.class);
+        startActivity(intent);
     }
 
     // Método para Abrir Câmera
@@ -116,6 +150,51 @@ public class EditarLancha extends AppCompatActivity {
         Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, uri_imagem);
         startActivityForResult(intentCamera, IMAGE_CAPTURE_CODE);
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_editar_lancha, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.menuSalvarEdicaoLancha:
+                editarLancha();
+                realm.close();
+                Intent intent = new Intent(EditarLancha.this, Lanchas.class);
+                startActivity(intent);
+                break;
+            case R.id.menuExcluirLancha:
+                excluirLancha();
+                realm.close();
+                Intent intent1 = new Intent(EditarLancha.this, Lanchas.class);
+                startActivity(intent1);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void excluirLancha() {
+
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm bgRealm1) {
+
+                RealmResults<Lancha> results = bgRealm1.where(Lancha.class)
+                        .equalTo("lancha_id", lancha.getLancha_id())
+                        .findAll();
+
+                results.deleteAllFromRealm();
+            }
+        });
 
     }
 
@@ -148,4 +227,10 @@ public class EditarLancha extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent voltaPainel = new Intent (EditarLancha.this, Lanchas.class);
+        startActivity(voltaPainel);
+    }
 }

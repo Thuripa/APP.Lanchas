@@ -1,8 +1,11 @@
 package com.example.applanchas.Modelos;
 
 import android.media.Image;
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.io.File;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -15,6 +18,7 @@ public class Lancha extends RealmObject implements Parcelable {
     private String nomeDono;
     private String modelo;
     private int tamanho;
+    String uri_imagem;
 
     public Lancha () {
 
@@ -64,8 +68,13 @@ public class Lancha extends RealmObject implements Parcelable {
         return nomeLancha;
     }
 
+    public String getUri_imagem() {
+        return uri_imagem;
+    }
 
-
+    public void setUri_Imagem(String uri_imagem) {
+        this.uri_imagem = uri_imagem;
+    }
 
     protected Lancha(Parcel in) {
         lancha_id = in.readInt();
@@ -73,6 +82,7 @@ public class Lancha extends RealmObject implements Parcelable {
         nomeDono = in.readString();
         modelo = in.readString();
         tamanho = in.readInt();
+        uri_imagem = in.readString();
     }
 
     @Override
@@ -87,6 +97,7 @@ public class Lancha extends RealmObject implements Parcelable {
         dest.writeString(nomeDono);
         dest.writeString(modelo);
         dest.writeInt(tamanho);
+        dest.writeString(uri_imagem);
     }
 
     @SuppressWarnings("unused")

@@ -1,3 +1,4 @@
+package com.example.applanchas.Adaptador;/*
 package com.example.applanchas.Adaptador;
 
 import android.view.View;
@@ -24,6 +25,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        //listener.aoClicarLancha();
+        listener.aoClicarLancha();
     }
 }
+*/

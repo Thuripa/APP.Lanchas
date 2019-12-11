@@ -12,41 +12,41 @@
         android:layout_width="294dp"
         android:layout_height="40dp"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="59dp"
         android:ems="10"
+        android:hint="@string/tamanho_em_p_s"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:hint="@string/tamanho_em_p_s"
         android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditModelo"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/etEditModelo" />
 
     <EditText
         android:id="@+id/etEditModelo"
         android:layout_width="294dp"
         android:layout_height="40dp"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="59dp"
         android:ems="10"
         android:hint="@string/modelo"
-        android:textColorHint="#FFFFFF"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditNomeDono"
-        android:importantForAutofill="no"/>
+        app:layout_constraintTop_toBottomOf="@+id/etEditNomeDono" />
 
     <TextView
         android:id="@+id/tvEditarLancha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="114dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="114dp"
         android:text="@string/Editar_Lancha"
         android:textColor="#FFFFFF"
@@ -60,46 +60,46 @@
         android:layout_width="294dp"
         android:layout_height="40dp"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="59dp"
         android:ems="10"
         android:hint="@string/nome_da_lancha"
-        android:textColorHint="#FFFFFF"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEditarLancha"
-        android:importantForAutofill="no"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvEditarLancha" />
 
     <EditText
         android:id="@+id/etEditNomeDono"
         android:layout_width="294dp"
         android:layout_height="40dp"
         android:layout_marginStart="58dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="59dp"
         android:ems="10"
         android:hint="@string/nome_do_dono"
-        android:textColorHint="#FFFFFF"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditNomeLancha"
-        android:importantForAutofill="no"/>
+        app:layout_constraintTop_toBottomOf="@+id/etEditNomeLancha" />
 
     <Button
         android:id="@+id/btnEditarLancha"
         android:layout_width="321dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#1352B3"
         android:text="@string/Editar_Lancha"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivFotoLancha2" />
 
     <ImageView
         android:id="@+id/ivFotoLancha2"

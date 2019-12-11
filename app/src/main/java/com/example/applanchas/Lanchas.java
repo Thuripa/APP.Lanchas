@@ -5,9 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.applanchas.Adaptador.Adaptador;
 import com.example.applanchas.Modelos.Auxiliador;
@@ -22,14 +25,12 @@ import io.realm.RealmChangeListener;
 public class Lanchas extends AppCompatActivity implements Adaptador.OnClickListener {
 
     FloatingActionButton fabAdicionarLanhca;
-
     RecyclerView rvLanchas;
     Realm realm;
     Auxiliador auxiliador;
     RealmChangeListener realmChangeListener;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lanchas);
@@ -49,7 +50,7 @@ public class Lanchas extends AppCompatActivity implements Adaptador.OnClickListe
         auxiliador = new Auxiliador(realm);
         auxiliador.selectFromDB();
 
-        Adaptador adaptador = new Adaptador(this, auxiliador.justRefresh());
+        Adaptador adaptador = new Adaptador(this, auxiliador.justRefresh(), this);
         rvLanchas.setLayoutManager(new LinearLayoutManager(this));
         rvLanchas.setAdapter(adaptador);
 
@@ -73,7 +74,10 @@ public class Lanchas extends AppCompatActivity implements Adaptador.OnClickListe
         realmChangeListener = new RealmChangeListener() {
             @Override
             public void onChange(Object o) {
-                Adaptador adaptador = new Adaptador(Lanchas.this, auxiliador.justRefresh());
+                auxiliador.selectFromDB();
+                Adaptador adaptador = new Adaptador(Lanchas.this, auxiliador.justRefresh(),
+                        Lanchas.this);
+
                 rvLanchas.setAdapter(adaptador);
             }
         };
@@ -91,11 +95,45 @@ public class Lanchas extends AppCompatActivity implements Adaptador.OnClickListe
     @Override
     public void aoClicarLancha(int position) {
 
-        //pega a posição da lancha selecionada por meio do meu auxiliador
-        Lancha lanchaSelecionada = auxiliador.justRefresh().get(position);
+        Intent intentAnterior = getIntent();
 
-        Intent abrirEditor = new Intent(this, EditarLancha.class);
-        abrirEditor.putExtra("lancha", lanchaSelecionada);
-        startActivity(abrirEditor);
+
+        // Gambiarra pra descobrir a activity que chamou essa daqui, se for a AddSaida então vai mandar
+        // retornar a lancha escolhida, se for PainelUsuario então vai abrir o editor
+
+        if (intentAnterior.getExtras() != null){
+
+            Bundle bundle = intentAnterior.getExtras();
+
+            if (bundle.getInt("code") == 1002) {
+                Intent data = new Intent();
+                data.setData(Uri.parse(String.valueOf(position)));
+                setResult(RESULT_OK, data);
+                finish();
+            } else {
+                //pega a posição da lancha selecionada por meio do meu auxiliador
+                Lancha lanchaSelecionada = auxiliador.justRefresh().get(position);
+
+                Intent abrirEditor = new Intent(this, EditarLancha.class);
+                abrirEditor.putExtra("lancha", lanchaSelecionada);
+                startActivity(abrirEditor);
+            }
+        } else {
+            //pega a posição da lancha selecionada por meio do meu auxiliador
+            Lancha lanchaSelecionada = auxiliador.justRefresh().get(position);
+
+            Intent abrirEditor = new Intent(this, EditarLancha.class);
+            abrirEditor.putExtra("lancha", lanchaSelecionada);
+            startActivity(abrirEditor);
+        }
+
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent voltaPainel = new Intent (Lanchas.this, PainelUsuario.class);
+        startActivity(voltaPainel);
+    }
+
 }

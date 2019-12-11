@@ -20,10 +20,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLanchas" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCadastrarSaidaEdited" />
 
     <Button
-        android:id="@+id/btnLanchas"
+        android:id="@+id/btnCadastrarSaidaEdited"
         android:layout_width="224dp"
         android:layout_height="59dp"
         android:layout_marginStart="93dp"

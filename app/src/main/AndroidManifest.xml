@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditarLancha"></activity>
+        <activity android:name=".EditarSaida"></activity>
+        <activity android:name=".AddSaida" />
+        <activity android:name=".EditarLancha" />
         <activity android:name=".FotoLancha" />
         <activity android:name=".Saidas" />
         <activity android:name=".Lanchas" />

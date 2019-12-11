@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,7 +38,7 @@ public class FotoLancha extends AppCompatActivity {
         setContentView(R.layout.activity_foto_lancha);
 
 
-        imageView = findViewById(R.id.imageView);
+        //imageView = findViewById(R.id.imageView);
         btnTirarFoto = findViewById(R.id.btnTirarFoto);
         btnTirarFoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +96,13 @@ public class FotoLancha extends AppCompatActivity {
 
         if(resultCode == RESULT_OK) {
             //seta a foto tirada no ImageView da tela
-            imageView.setImageURI(uri_imagem);
+
+            //imageView.setImageURI(uri_imagem);
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageView.setImageBitmap(imageBitmap);
+
+
         }
 
     }

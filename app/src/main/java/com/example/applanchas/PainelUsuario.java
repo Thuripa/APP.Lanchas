@@ -32,7 +32,7 @@ public class PainelUsuario extends AppCompatActivity {
             }
         });
 
-        btnLanchas = findViewById(R.id.btnLanchas);
+        btnLanchas = findViewById(R.id.btnCadastrarSaidaEdited);
         btnLanchas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +62,10 @@ public class PainelUsuario extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.itemAdicionarLancha:
                 chamaTelaAddLancha();
+                break;
+            case R.id.itemAdicionarSaida:
+                chamaTelaSaidas();
+                break;
         }
 
         return super.onOptionsItemSelected(item);

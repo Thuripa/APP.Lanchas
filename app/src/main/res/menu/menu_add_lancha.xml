@@ -10,7 +10,7 @@
         />
 
     <item
-        android:id="@+id/menuAdicionarLancha"
+        android:id="@+id/menuAdicionarNovaLancha"
         android:title="@string/Adicionar_Lancha"
         />
 
